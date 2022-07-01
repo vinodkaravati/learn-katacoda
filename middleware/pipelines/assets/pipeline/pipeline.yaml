@@ -9,6 +9,9 @@ spec:
   - name: deployment-name
     type: string
     description: name of the deployment to be patched
+  - name: BUILDER_IMAGE
+    type: string
+    description: name of the builder-image to be patched
   - name: git-url
     type: string
     description: url of the git repo for the code of deployment
@@ -43,6 +46,8 @@ spec:
     params:
     - name: TLSVERIFY
       value: "false"
+    - name: BUILDER_IMAGE
+      value: $(params.BUILDER_IMAGE)
     - name: IMAGE
       value: $(params.IMAGE)
     workspaces:
